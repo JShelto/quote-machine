@@ -14,10 +14,8 @@ const AuthorText = ({author}) => {
 const RetweetButton = ({quote,color}) => {
   return (
     <a href={`https://twitter.com/intent/tweet?text=${quote}`} id="tweet-quote" target="_blank" rel="noopener noreferrer">
-      <IconContext.Provider value={{ color: color, className: "global-class-name" }}>
-        <div>
+      <IconContext.Provider value={{ color: color, className: "social-button", size: "1.5em" }}>
         <FaTwitterSquare />
-        </div>
       </IconContext.Provider>
     </a>
   )
@@ -26,10 +24,8 @@ const RetweetButton = ({quote,color}) => {
 const TumblrButton = ({quote,color}) => {
   return (
     <a href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&caption=${quote}`} id="tumble-quote" target="_blank" rel="noopener noreferrer">
-      <IconContext.Provider value={{ color: color, className: "global-class-name" }}>
-        <div>
+      <IconContext.Provider value={{ color: color, className: "social-button", size: "1.5em" }}>
         <FaTumblrSquare />
-        </div>
       </IconContext.Provider>
     </a>
   )
