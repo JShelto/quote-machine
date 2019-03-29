@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { QuoteConsumer } from './context';
 import { FaTumblrSquare, FaTwitterSquare,FaQuoteLeft } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
-
 const QuoteText = ({quote}) => {
-  return <div id="text" class="quote-text"><FaQuoteLeft />{`${quote}`}</div>
+  return <div id="text" className="quote-text"><FaQuoteLeft />{`${quote}`}</div>
 };
 
 const AuthorText = ({author}) => {
-  return <div id="author" class="quote-author">{`- ${author}`}</div>
+  return <div id="author" className="quote-author">{`- ${author}`}</div>
 };
 
 const RetweetButton = ({quote,color}) => {
@@ -39,12 +39,20 @@ export default class QuoteBox extends Component {
   render() {
     return (
       <div id="quote-box" className="quote-box">
-        <QuoteText quote="When I let go of what I am, I become what I might be." />
-        <AuthorText quoteText author="Lao Tzu" />
-        <div className="button-container">
-          <RetweetButton quote="When I let go of what I am, I become what I might be."  color="orange"/>
-          <TumblrButton quote="When I let go of what I am, I become what I might be." color="orange"/>
-        </div>
+        <QuoteConsumer>
+          {(value) => {
+            return (
+              <React.Fragment>
+                <QuoteText quote={value.quote}/>
+                <AuthorText author={value.author}/>
+                <div className="button-container">
+                  <RetweetButton color={value.color}/>
+                  <TumblrButton color={value.color}/>
+                </div>
+              </React.Fragment>
+            )
+          }}
+        </QuoteConsumer>
       </div>
     )
   }
