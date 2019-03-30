@@ -6,16 +6,21 @@ const QuoteContext = React.createContext();
 
 class QuoteProvider extends Component {
   state = {
-    quote: "Test",
-    author: "Test Author",
+    quote: "",
+    author: "",
     color: "orange"
   };
+
+  fetchQuote() {
+    console.log("quote fetched");
+  }
 
   render() {
     return (
       <QuoteContext.Provider
         value={{
-          ...this.state
+          ...this.state,
+          fetchQuote: this.fetchQuote
         }}>
         {this.props.children}
       </QuoteContext.Provider>

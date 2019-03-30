@@ -31,10 +31,6 @@ const TumblrButton = ({quote,color}) => {
   )
 }
 
-const FetchNewQuoteButton = ({url}) => {
-  return <button id="new-quote"></button>
-}
-
 export default class QuoteBox extends Component {
   render() {
     return (
@@ -48,6 +44,7 @@ export default class QuoteBox extends Component {
                 <div className="button-container">
                   <RetweetButton color={value.color}/>
                   <TumblrButton color={value.color}/>
+                  <button id="new-quote" onClick={()=>{value.fetchQuote()}}>New Quote</button>
                 </div>
               </React.Fragment>
             )
