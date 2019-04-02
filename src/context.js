@@ -20,6 +20,7 @@ class QuoteProvider extends Component {
     const instance = Axios.create({
       headers: {
         'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }    
     });
     instance.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
