@@ -22,7 +22,7 @@ class QuoteProvider extends Component {
         'Content-type': 'application/json',
       }    
     });
-    instance.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
+    instance.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
       .then((res) => {
         let data = res.data;
         let quote = data[0].content.replace('<p>', '').replace('</p>','');
