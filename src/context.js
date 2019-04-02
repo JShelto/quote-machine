@@ -31,12 +31,24 @@ class QuoteProvider extends Component {
       });
   }
 
+  setColor = () => {
+    this.setState({
+      color: this.generateRandomHexColor()
+    })
+  }
+
+  generateRandomHexColor = () => {
+    const color = '#'+Math.floor(Math.random()*16777215).toString(16);
+    return color
+  }
+
   render() {
     return (
       <QuoteContext.Provider
         value={{
           ...this.state,
-          fetchQuote: this.fetchQuote
+          fetchQuote: this.fetchQuote,
+          setColor: this.setColor
         }}>
         {this.props.children}
       </QuoteContext.Provider>

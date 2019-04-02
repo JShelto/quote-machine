@@ -47,7 +47,7 @@ export default class QuoteBox extends Component {
                     <RetweetButton value={value}/>
                     <TumblrButton value={value}/>
                   </div>
-                  <button id='new-quote' className='button' onClick={()=>{value.fetchQuote()}}>New Quote</button>
+                  <button id='new-quote' className='button' style={{backgroundColor: value.color}} onClick={()=>{value.fetchQuote();value.setColor()}}>New Quote</button>
                 </div>
               </React.Fragment>
             )
