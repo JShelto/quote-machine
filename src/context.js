@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 // import axios from 'axios';
 
 const QuoteContext = React.createContext();
@@ -17,13 +17,7 @@ class QuoteProvider extends Component {
   }
 
   fetchQuote = () => {
-    const instance = Axios.create({
-      headers: {
-        'Content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }    
-    });
-    instance.get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1')
+    axios.get(`https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`)
       .then((res) => {
         let data = res.data;
         let quote = data[0].content.replace('<p>', '').replace('</p>','');
